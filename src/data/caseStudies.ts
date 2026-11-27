@@ -105,7 +105,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'fraud',
-    image: '/assets/projects/fraud.png',
+    image: '/assets/projects/fraud.webp',
     title: 'Credit Card Fraud Detection',
     titleAr: 'كشف احتيال بطاقات الائتمان',
     repo: 'https://github.com/Ibrahim-Al-Jid/credit-card-fraud-detection',
@@ -126,7 +126,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'churn',
-    image: '/assets/projects/churn.png',
+    image: '/assets/projects/churn.webp',
     title: 'Telco Churn Survival Analysis',
     titleAr: 'تحليل بقاء عملاء الاتصالات',
     repo: 'https://github.com/Ibrahim-Al-Jid/telco-churn-survival-analysis',

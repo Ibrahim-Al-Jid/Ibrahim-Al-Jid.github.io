@@ -42,8 +42,20 @@ const otherPath = lang === 'en' ? `/ar${Astro.url.pathname === '/' ? '/' : Astro
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL('/assets/og.png', Astro.site)} />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Ibrahim Hamdy',
+      url: Astro.site,
+      image: new URL(profile.avatar, Astro.site),
+      jobTitle: 'AI Engineer & Data Scientist',
+      address: { '@type': 'PostalAddress', addressLocality: 'Cairo', addressCountry: 'EG' },
+      sameAs: [profile.github, profile.linkedin],
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Helwan National University' },
+    })} />
   </head>
   <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[100] focus:rounded-lg focus:bg-[var(--color-accent)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#04202f]">{lang === 'ar' ? 'تخطَّ إلى المحتوى' : 'Skip to content'}</a>
     <Nav lang={lang} t={t} otherPath={otherPath} />
     <main id="main">
       <slot />
