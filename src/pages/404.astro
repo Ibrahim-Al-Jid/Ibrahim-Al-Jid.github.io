@@ -2,9 +2,15 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base lang="en" title="404 — Ibrahim Hamdy" description="Page not found.">
-  <div class="min-h-[70vh] flex flex-col items-center justify-center px-5 text-center pt-16">
-    <p class="metric-num text-7xl font-bold">404</p>
-    <p class="mt-4 text-[var(--color-muted)]">This page does not exist. الصفحة دي مش موجودة.</p>
-    <a href="/" class="btn-primary mt-8">Back home</a>
+  <div class="min-h-[70vh] flex flex-col items-center justify-center px-5 text-center pt-16 gap-12">
+    <div>
+      <p class="metric-num text-7xl font-bold">404</p>
+      <p class="mt-4 text-[var(--color-muted)]">This page does not exist.</p>
+      <a href="/" class="btn-primary mt-6 inline-block">Back home</a>
+    </div>
+    <div dir="rtl" lang="ar">
+      <p class="text-[var(--color-muted)]">هذه الصفحة غير موجودة.</p>
+      <a href="/ar/" class="btn-primary mt-6 inline-block">العودة إلى الرئيسية</a>
+    </div>
   </div>
 </Base>

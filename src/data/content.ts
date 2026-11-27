@@ -279,6 +279,7 @@ export const ui = {
     caseStudy: 'Case study',
     footer: 'Designed and built by Ibrahim Hamdy',
     langToggle: 'العربية',
+    menuLabel: 'Menu',
     cvSection: { title: 'CV downloads', note: 'A master CV plus tailored variants for each job track.', download: 'Download PDF' },
     experienceNote: '', // ⟦PENDING: experience⟧
   },
@@ -309,6 +310,7 @@ export const ui = {
     caseStudy: 'دراسة حالة',
     footer: 'صممه وبناه إبراهيم حمدي',
     langToggle: 'English',
+    menuLabel: 'القائمة',
     cvSection: { title: 'تحميل السيرة الذاتية', note: 'نسخة رئيسية ونسخ مخصصة لكل تراك وظيفي.', download: 'تحميل PDF' },
     experienceNote: '',
   },
