@@ -25,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'basira',
     title: 'Basira',
     titleAr: 'بصيرة',
-    repo: 'https://github.com/Ibrahim-Al-Jid/Marsad',
+    repo: 'https://github.com/Ibrahim-Al-Jid/Basira',
     stack: ['Python', 'LangGraph', 'FastAPI', 'PostgreSQL', 'React', 'Docker'],
     sections: [
       { heading: H.problem, body: {

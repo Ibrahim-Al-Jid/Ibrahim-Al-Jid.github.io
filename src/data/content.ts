@@ -54,7 +54,7 @@ export const agents: AgentCard[] = [
     name: 'Basira',
     nameAr: 'بصيرة',
     badge: { en: 'Graduation project', ar: 'مشروع التخرج' },
-    repo: 'https://github.com/Ibrahim-Al-Jid/Marsad', // redirects to Basira after rename
+    repo: 'https://github.com/Ibrahim-Al-Jid/Basira',
     tagline: {
       en: 'Multi-agent security review for web projects',
       ar: 'مراجعة أمنية متعددة الوكلاء لمشاريع الويب',

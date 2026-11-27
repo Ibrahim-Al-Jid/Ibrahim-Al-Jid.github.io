@@ -1,0 +1,162 @@
+# Master CV content, one source of truth. build.py renders one PDF per variant.
+# Assumptions marked ASSUMPTION are inferred per his instruction and adjustable.
+
+identity:
+  name: Ibrahim Hamdy
+  city: Cairo, Egypt
+  email: ihamdy1552005@gmail.com
+  github: github.com/Ibrahim-Al-Jid
+  github_url: https://github.com/Ibrahim-Al-Jid
+  linkedin: linkedin.com/in/ibrahim-al-jid1
+  linkedin_url: https://www.linkedin.com/in/ibrahim-al-jid1
+  portfolio: ibrahim-al-jid.github.io
+  portfolio_url: https://ibrahim-al-jid.github.io
+  # phone omitted (ASSUMPTION: not published without his explicit yes)
+
+education:
+  degree: B.Sc. in Data Science
+  faculty: Faculty of Computer Science and Information Technology
+  university: Helwan National University (HNU)
+  years: Expected 2027
+  gpa: GPA 3.0 / 4.0 (Very Good)
+
+languages:
+  - Arabic (native)
+  - English (professional working proficiency)  # ASSUMPTION: level, adjustable
+
+skills:
+  languages: Python, TypeScript/JavaScript, SQL (PostgreSQL, Oracle, T-SQL), PL/pgSQL
+  ai_agents: LangGraph, multi-agent orchestration, LLM tool use, RAG (pgvector), OpenRouter
+  data_ml: pandas, NumPy, scikit-learn, LightGBM, XGBoost, SHAP, lifelines, Jupyter
+  web: FastAPI, React, Vite, Node.js/Express, Prisma, Tailwind, React Native/Expo
+  infra: Docker, nginx, GitHub Actions, Redis
+  bi: Power BI (DAX)
+  fundamentals: Statistics, evaluation design, database design, RBAC/MLS security, networks
+
+projects:
+  basira:
+    name: Basira, multi-agent security review (graduation project)
+    link: github.com/Ibrahim-Al-Jid/Basira
+    stack: Python, LangGraph, FastAPI, PostgreSQL, React
+    bullets:
+      - Five-agent LangGraph pipeline running 100 defensive checks across 75 vulnerability subdomains; bilingual AR/EN reports as PDF, JSON, HTML and SARIF; provider-agnostic LLM settings (OpenRouter, OpenAI, Anthropic, Google) with encrypted keys and deterministic fallback
+      - "Measured honestly on DVWA: static checks alone find 0/13 vulnerable modules; one agent with no tools finds 8/13 (61.5%) at zero cost on free models; 256 automated tests"
+  warsha:
+    name: Warsha, AI software company simulation
+    link: ""  # private repo
+    stack: Python, FastAPI, LangGraph, PostgreSQL, React, Docker
+    bullets:
+      - Role-based agents (CEO, engineers, reviewers, QA) take one idea to a tested pull request; permissions, budgets and review gates enforced in code, never in prompts; QA/test gates stay deterministic so a model can never declare "tests passed"
+      - Real LLMs via OpenRouter free models with deterministic fallback; event-sourced engine, live 3D office UI, server-side bilingual PDF/JSON reports; 212 CI tests across 5 jobs
+  fraud:
+    name: Credit Card Fraud Detection
+    link: github.com/Ibrahim-Al-Jid/credit-card-fraud-detection
+    stack: Python, LightGBM, scikit-learn
+    bullets:
+      - "283k real transactions (0.17% fraud) on a chronological split: PR-AUC 0.803 with 95% CI (0.715-0.884); catches 76% of fraud at 0.8 precision"
+      - Reported where gradient boosting is not clearly better than logistic regression instead of hiding it
+  churn:
+    name: Telco Churn Survival Analysis
+    link: github.com/Ibrahim-Al-Jid/telco-churn-survival-analysis
+    stack: Python, lifelines, scikit-learn
+    bullets:
+      - "Reframed churn as time-to-event on 7,032 customers: Kaplan-Meier, Cox and AFT with assumption checks; held-out C-index 0.854"
+  drybean:
+    name: Dry Bean Classification with Explainability
+    link: github.com/Ibrahim-Al-Jid/dry-bean-multiclass-explainability
+    stack: Python, XGBoost, SHAP
+    bullets:
+      - 7-class classifier, macro-F1 0.932; exact TreeSHAP vs permutation importance compared; five models shown within noise of each other
+  bike:
+    name: Bike Demand Forecasting
+    link: github.com/Ibrahim-Al-Jid/bike-demand-forecasting
+    stack: Python, LightGBM
+    bullets:
+      - Hourly demand 1h/24h ahead with leak-free lag features and rolling-origin evaluation; 24h MAE 31% under the same-hour-last-week baseline
+  deposit:
+    name: Bank Term Deposit Prediction
+    link: github.com/Ibrahim-Al-Jid/bank-term-deposit-prediction
+    stack: Python, scikit-learn
+    bullets:
+      - 41,188 contacts, ROC-AUC 0.814; top decile holds 4.7x the subscribers; threshold chosen from campaign economics, time-based validation
+  mlhub:
+    name: Machine Learning Portfolio (10 projects)
+    link: github.com/Ibrahim-Al-Jid/Machine-Learning-Portfolio
+    stack: Python, scikit-learn, LightGBM, XGBoost, SHAP, lifelines
+    bullets:
+      - Ten end-to-end projects across classification, regression, clustering, time series, NLP, recommendation and survival analysis, each with baselines, leak-free pipelines and reproducible results, bilingual docs
+  trendora:
+    name: Trendora Control Center, e-commerce platform
+    link: github.com/Ibrahim-Al-Jid/Trendora-Control-Center
+    stack: FastAPI, PostgreSQL, Redis, React, TypeScript, Docker Compose
+    bullets:
+      - "Full-stack e-commerce: FastAPI + PostgreSQL + Redis backend, React/TypeScript client, 131 tests on real services in CI, English and Arabic docs"
+  campus:
+    name: Student Management System (private)
+    link: ""
+    stack: FastAPI, React 19, TypeScript, PostgreSQL, nginx
+    bullets:
+      - University administration across admissions, credit-hour registration, attendance, grading and finance; 8 roles with server-enforced permissions, MFA, full EN/AR with RTL
+  san3a:
+    name: San3a, handcrafts marketplace (private)
+    link: ""
+    stack: React, TypeScript
+    bullets:
+      - Buyer storefront and artisan portal for a handmade-crafts marketplace
+  voltex:
+    name: Voltex, field-sales platform (private)
+    link: ""
+    stack: React Native/Expo, Express, PostgreSQL
+    bullets:
+      - "Two mobile apps and a supervisor dashboard over one shared API: sales, inventory, attendance, performance"
+  powerbi:
+    name: Power BI Analytics Portfolio
+    link: github.com/Ibrahim-Al-Jid/power-bi-analytics-portfolio
+    stack: Power BI, DAX
+    bullets:
+      - Five end-to-end BI projects with cleaned data, DAX measures, dashboards and written findings
+  covid:
+    name: COVID-19 Global Analysis
+    link: github.com/Ibrahim-Al-Jid/covid19-global-analysis
+    stack: Python, Power BI
+    bullets:
+      - "210 countries: Lasso/RFE feature selection, hypothesis tests, PCA, Power BI dashboard"
+  datagent:
+    name: Data Analysis Agent
+    link: github.com/Ibrahim-Al-Jid/Data-Analysis-Agent
+    stack: FastAPI, React, Pandas
+    bullets:
+      - Chat-with-your-CSV analyst where every number must come from a real Pandas tool result, never invented
+  dbs:
+    name: Database engineering (Oracle, SQL Server, T-SQL)
+    link: github.com/Ibrahim-Al-Jid/oracle-university-database
+    stack: Oracle XE, PL/SQL, T-SQL, SQL Server
+    bullets:
+      - University registration DB with triggers, auto-grading and 30 self-checking tests; company DB designed ERD-to-schema with 12 analytical queries; secure records system with RBAC, Bell-LaPadula MLS and AES-256
+
+variants:
+  master:
+    headline: AI Engineer & Data Scientist
+    summary: Final-year Data Science student who builds multi-agent AI systems and the production software around them. Ships tested, documented, bilingual (EN/AR) software with honest, quantified evaluation.
+    skills_order: [languages, ai_agents, data_ml, web, infra, bi, fundamentals]
+    projects: [basira, warsha, mlhub, fraud, trendora]
+  front-end:
+    headline: Front-End Engineer
+    summary: Final-year Data Science student building fast, bilingual (EN/AR, full RTL) web apps in React and TypeScript, with the APIs behind them. Cares about tested, documented, production-grade UI.
+    skills_order: [web, languages, infra, ai_agents, data_ml, bi]
+    projects: [trendora, campus, san3a, voltex, basira]
+  data-analysis:
+    headline: Data Analyst
+    summary: "Final-year Data Science student who turns raw data into decisions: leak-free pipelines, honest statistics, and dashboards people actually read. Ten shipped analysis and ML projects with measured results."
+    skills_order: [data_ml, bi, languages, fundamentals, web, infra]
+    projects: [mlhub, powerbi, covid, datagent, deposit, churn]
+  ml-ai-engineer:
+    headline: ML / AI Engineer
+    summary: "Final-year Data Science student building LLM agent systems with enforced guardrails, and classical ML with honest, measured evaluation. Graduation project: a multi-agent security reviewer evaluated on real vulnerable targets."
+    skills_order: [ai_agents, data_ml, languages, infra, web, fundamentals]
+    projects: [basira, warsha, fraud, drybean, churn]
+  backend-fullstack:
+    headline: Backend / Full-Stack Engineer
+    summary: "Final-year Data Science student building tested, documented backends and the products around them: FastAPI, PostgreSQL, Docker, React. Rules in code, CI on every commit."
+    skills_order: [web, languages, infra, ai_agents, data_ml, bi]
+    projects: [trendora, campus, warsha, basira, voltex]
