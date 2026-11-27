@@ -33,7 +33,7 @@ const base = lang === 'ar' ? '/ar' : '';
           <img src={profile.avatar} alt={lang === 'ar' ? 'صورة إبراهيم حمدي' : 'Portrait of Ibrahim Hamdy'} width="300" height="300" class="rounded-[calc(2rem-3px)] w-56 sm:w-72 aspect-square object-cover bg-[#0F1B2E]" loading="eager" />
         </div>
         <div class="absolute -bottom-4 -end-4 rounded-xl border border-[var(--color-line)] bg-[var(--color-ink)] px-3 py-2 shadow-lg">
-          <span class="font-mono text-xs text-[var(--color-accent)]" dir="ltr">Cairo, EG</span>
+          <span class="font-mono text-xs text-[var(--color-accent)]" dir="ltr">{lang === 'ar' ? 'القاهرة، مصر' : 'Cairo, EG'}</span>
         </div>
       </div>
     </div>

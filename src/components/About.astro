@@ -9,8 +9,10 @@ const s = t.sections.about;
 <section id="about" class="section-pad border-t border-[var(--color-line)]">
   <div class="max-w-6xl mx-auto px-5 grid gap-10 md:grid-cols-[auto_1fr] items-start">
     <div class="reveal">
-      <img src={profile.avatar} alt={lang === 'ar' ? 'صورة إبراهيم حمدي' : 'Ibrahim Hamdy'}
-        width="220" height="220" class="rounded-2xl border border-[var(--color-line)]" loading="lazy" />
+      <div class="rounded-2xl p-[2.5px] bg-gradient-to-br from-[var(--color-accent)] via-[rgba(14,165,233,0.25)] to-transparent w-fit">
+        <img src={profile.avatar} alt={lang === 'ar' ? 'صورة إبراهيم حمدي' : 'Ibrahim Hamdy'}
+          width="220" height="220" class="rounded-[calc(1rem-2.5px)] aspect-square object-cover bg-[#0F1B2E]" loading="lazy" />
+      </div>
     </div>
     <div>
       <p class="eyebrow reveal">{s.eyebrow}</p>
