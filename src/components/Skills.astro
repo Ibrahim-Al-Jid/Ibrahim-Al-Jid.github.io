@@ -5,18 +5,44 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = ui[lang];
 const s = t.sections.skills;
+
+const icons = [
+  // Languages: code brackets
+  '<path d="M13 8 9 12l4 4M21 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 5.5 15 18.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>',
+  // AI & agents: connected nodes
+  '<circle cx="17" cy="6" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="8" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="18" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M14.5 8 11 10.4M14.8 15.6 17.6 16.6" stroke="currentColor" stroke-width="2.2"/>',
+  // Data & ML: chart with trend
+  '<path d="M6 21V11M12 21V5M18 21v-8M24 21H4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M5 9l6-4 5 3 6-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 4"/>',
+  // Web: layout panels
+  '<rect x="5" y="5" width="22" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M5 11h22M11 11v11" stroke="currentColor" stroke-width="2.2"/>',
+  // Infrastructure: stacked servers
+  '<rect x="6" y="5" width="20" height="7" rx="2.4" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="6" y="15" width="20" height="7" rx="2.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="10.4" cy="8.5" r="1.2" fill="currentColor"/><circle cx="10.4" cy="18.5" r="1.2" fill="currentColor"/>',
+  // BI & fundamentals: pie + bars
+  '<path d="M14 5a8 8 0 1 0 8 8h-8Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 3a8 8 0 0 1 6 6h-6Z" fill="none" stroke="currentColor" stroke-width="2.2" opacity="0.7"/>',
+];
 ---
 <section id="skills" class="section-pad border-t border-[var(--color-line)]">
   <div class="max-w-6xl mx-auto px-5">
     <p class="eyebrow reveal">{s.eyebrow}</p>
     <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {skills.map((g) => (
-        <div class="card reveal p-6">
-          <h3 class="font-mono text-sm text-[var(--color-accent)] uppercase tracking-wider">{g.group[lang]}</h3>
-          <div class="mt-4 flex flex-wrap gap-2">
-            {g.items.map((x) => <span class="chip !text-[var(--color-text)]">{x}</span>)}
+      {skills.map((g, gi) => (
+        <div class="card reveal p-6 relative overflow-hidden group">
+          <div class="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[var(--color-accent)] to-transparent opacity-70" aria-hidden="true"></div>
+          <div class="flex items-center gap-3">
+            <span class="grid place-items-center w-11 h-11 rounded-xl border border-[var(--color-line)] bg-[rgba(14,165,233,0.08)] text-[var(--color-accent)] shrink-0">
+              <svg viewBox="0 0 28 28" width="24" height="24" aria-hidden="true" set:html={icons[gi % icons.length]} />
+            </span>
+            <h3 class="font-semibold text-[0.98rem] leading-snug">{g.group[lang]}</h3>
           </div>
+          <ul class="mt-5 space-y-2.5">
+            {g.items.map((x) => (
+              <li class="flex items-baseline gap-2.5 text-sm text-[var(--color-muted)]">
+                <span class="inline-block w-1.5 h-1.5 rotate-45 bg-[var(--color-accent)] shrink-0 translate-y-[-1px]" aria-hidden="true"></span>
+                <span>{x}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>

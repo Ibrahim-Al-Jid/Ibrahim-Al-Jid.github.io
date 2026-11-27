@@ -3,6 +3,7 @@ import type { Lang } from './content';
 
 export type CaseStudy = {
   slug: string;
+  image: string;
   title: string;
   titleAr: string;
   repo?: string;
@@ -23,6 +24,7 @@ const H = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'basira',
+    image: '/assets/projects/basira.svg',
     title: 'Basira',
     titleAr: 'بصيرة',
     repo: 'https://github.com/Ibrahim-Al-Jid/Basira',
@@ -52,6 +54,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'warsha',
+    image: '/assets/projects/warsha.svg',
     title: 'Warsha',
     titleAr: 'ورشة',
     privateRepo: true,
@@ -81,6 +84,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'trendora',
+    image: '/assets/projects/trendora.svg',
     title: 'Trendora Control Center',
     titleAr: 'مركز تحكم تريندورا',
     repo: 'https://github.com/Ibrahim-Al-Jid/Trendora-Control-Center',
@@ -101,6 +105,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'fraud',
+    image: '/assets/projects/fraud.png',
     title: 'Credit Card Fraud Detection',
     titleAr: 'كشف احتيال بطاقات الائتمان',
     repo: 'https://github.com/Ibrahim-Al-Jid/credit-card-fraud-detection',
@@ -121,6 +126,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'churn',
+    image: '/assets/projects/churn.png',
     title: 'Telco Churn Survival Analysis',
     titleAr: 'تحليل بقاء عملاء الاتصالات',
     repo: 'https://github.com/Ibrahim-Al-Jid/telco-churn-survival-analysis',
@@ -141,6 +147,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'campus',
+    image: '/assets/projects/campus.svg',
     title: 'Student Management System',
     titleAr: 'نظام إدارة الطلاب',
     privateRepo: true,

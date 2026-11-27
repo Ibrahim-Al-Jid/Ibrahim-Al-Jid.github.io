@@ -37,6 +37,7 @@ export const hero = {
 
 export type AgentCard = {
   slug: string;
+  image: string;
   name: string;
   nameAr: string;
   badge?: { en: string; ar: string };
@@ -51,6 +52,7 @@ export type AgentCard = {
 export const agents: AgentCard[] = [
   {
     slug: 'basira',
+    image: '/assets/projects/basira.svg',
     name: 'Basira',
     nameAr: 'بصيرة',
     badge: { en: 'Graduation project', ar: 'مشروع التخرج' },
@@ -74,6 +76,7 @@ export const agents: AgentCard[] = [
   },
   {
     slug: 'warsha',
+    image: '/assets/projects/warsha.svg',
     name: 'Warsha',
     nameAr: 'ورشة',
     badge: { en: 'Private repo', ar: 'مستودع خاص' },
@@ -97,6 +100,7 @@ export const agents: AgentCard[] = [
   },
   {
     slug: 'data-analysis-agent',
+    image: '/assets/projects/data-analysis-agent.svg',
     name: 'Data Analysis Agent',
     nameAr: 'وكيل تحليل البيانات',
     repo: 'https://github.com/Ibrahim-Al-Jid/Data-Analysis-Agent',
@@ -112,6 +116,7 @@ export const agents: AgentCard[] = [
   },
   {
     slug: 'remindly-agent',
+    image: '/assets/projects/remindly-agent.svg',
     name: 'ReMindly Agent',
     nameAr: 'وكيل ReMindly',
     repo: 'https://github.com/Ibrahim-Al-Jid/ReMindly-Agent',
@@ -129,6 +134,7 @@ export type Category = 'agents' | 'ml' | 'fullstack' | 'data' | 'security';
 
 export type Project = {
   slug: string;
+  image: string;
   name: string;
   repo?: string;
   privateRepo?: boolean;
@@ -149,66 +155,66 @@ export const categories: { id: Category | 'all'; en: string; ar: string }[] = [
 ];
 
 export const projects: Project[] = [
-  { slug: 'ml-portfolio', name: 'Machine Learning Portfolio', repo: 'https://github.com/Ibrahim-Al-Jid/Machine-Learning-Portfolio', category: 'ml', featured: true,
+  { slug: 'ml-portfolio', image: '/assets/projects/ml-portfolio.png', name: 'Machine Learning Portfolio', repo: 'https://github.com/Ibrahim-Al-Jid/Machine-Learning-Portfolio', category: 'ml', featured: true,
     oneLiner: { en: 'Hub for 10 end-to-end ML projects with honest evaluation: no leakage, baselines, confidence intervals', ar: 'بوابة لعشرة مشاريع تعلم آلي متكاملة بتقييم صادق: بلا تسريب، مع خطوط أساس وفواصل ثقة' },
     metric: { en: '7 problem types', ar: '7 أنواع مسائل' }, stack: ['Python', 'scikit-learn', 'LightGBM', 'XGBoost'] },
-  { slug: 'fraud', name: 'Credit Card Fraud Detection', repo: 'https://github.com/Ibrahim-Al-Jid/credit-card-fraud-detection', category: 'ml', featured: true,
+  { slug: 'fraud', image: '/assets/projects/fraud.png', name: 'Credit Card Fraud Detection', repo: 'https://github.com/Ibrahim-Al-Jid/credit-card-fraud-detection', category: 'ml', featured: true,
     oneLiner: { en: 'Fraud detection on 283k real transactions, 0.17% fraud rate, chronological split', ar: 'كشف احتيال على 283 ألف معاملة حقيقية بنسبة احتيال 0.17% وتقسيم زمني' },
     metric: { en: 'PR-AUC 0.803, 76% recall at 0.8 precision', ar: 'PR-AUC 0.803 واستدعاء 76% عند دقة 0.8' }, stack: ['LightGBM', 'scikit-learn'] },
-  { slug: 'churn', name: 'Telco Churn Survival Analysis', repo: 'https://github.com/Ibrahim-Al-Jid/telco-churn-survival-analysis', category: 'ml',
+  { slug: 'churn', image: '/assets/projects/churn.png', name: 'Telco Churn Survival Analysis', repo: 'https://github.com/Ibrahim-Al-Jid/telco-churn-survival-analysis', category: 'ml',
     oneLiner: { en: 'Churn as a time-to-event problem: Kaplan-Meier, Cox and AFT on 7,032 customers', ar: 'فقدان العملاء كمسألة زمن-حدث: Kaplan-Meier وCox وAFT على 7,032 عميلًا' },
     metric: { en: 'C-index 0.854', ar: 'مؤشر توافق 0.854' }, stack: ['lifelines', 'scikit-learn'] },
-  { slug: 'drybean', name: 'Dry Bean Explainability', repo: 'https://github.com/Ibrahim-Al-Jid/dry-bean-multiclass-explainability', category: 'ml',
+  { slug: 'drybean', image: '/assets/projects/drybean.png', name: 'Dry Bean Explainability', repo: 'https://github.com/Ibrahim-Al-Jid/dry-bean-multiclass-explainability', category: 'ml',
     oneLiner: { en: '7-class classifier with exact TreeSHAP vs permutation importance compared', ar: 'مصنف 7 فئات مع مقارنة TreeSHAP الدقيق بأهمية التبديل' },
     metric: { en: 'macro-F1 0.932', ar: 'متوسط F1 كلي 0.932' }, stack: ['XGBoost', 'SHAP'] },
-  { slug: 'bike', name: 'Bike Demand Forecasting', repo: 'https://github.com/Ibrahim-Al-Jid/bike-demand-forecasting', category: 'ml',
+  { slug: 'bike', image: '/assets/projects/bike.png', name: 'Bike Demand Forecasting', repo: 'https://github.com/Ibrahim-Al-Jid/bike-demand-forecasting', category: 'ml',
     oneLiner: { en: 'Hourly demand 1h and 24h ahead, leak-free lags, rolling-origin evaluation', ar: 'توقع الطلب بالساعة لساعة و24 ساعة مقدمًا بخصائص بلا تسريب وتقييم متدحرج' },
     metric: { en: '31% under baseline', ar: 'أقل من خط الأساس بنسبة 31%' }, stack: ['LightGBM'] },
-  { slug: 'deposit', name: 'Bank Term Deposit Prediction', repo: 'https://github.com/Ibrahim-Al-Jid/bank-term-deposit-prediction', category: 'ml',
+  { slug: 'deposit', image: '/assets/projects/deposit.png', name: 'Bank Term Deposit Prediction', repo: 'https://github.com/Ibrahim-Al-Jid/bank-term-deposit-prediction', category: 'ml',
     oneLiner: { en: '41,188 contacts, profit-based threshold, time-based validation', ar: '41,188 جهة اتصال، بحد قرار مبني على الربح وتحقق زمني' },
     metric: { en: '4.7x lift in top decile', ar: 'رفع 4.7x في العشر الأعلى' }, stack: ['scikit-learn'] },
-  { slug: 'movielens', name: 'MovieLens Recommender', repo: 'https://github.com/Ibrahim-Al-Jid/movielens-recommender-system', category: 'ml',
+  { slug: 'movielens', image: '/assets/projects/movielens.png', name: 'MovieLens Recommender', repo: 'https://github.com/Ibrahim-Al-Jid/movielens-recommender-system', category: 'ml',
     oneLiner: { en: 'Hybrid ALS + ItemKNN + content, per-user time split', ar: 'هجين ALS + ItemKNN + محتوى، بتقسيم زمني لكل مستخدم' },
     metric: { en: 'NDCG@10 0.121 vs 0.079 popularity', ar: 'NDCG@10 0.121 مقابل 0.079 للشائع' }, stack: ['NumPy', 'pandas'] },
-  { slug: 'newsgroups', name: 'Newsgroups Text Classification', repo: 'https://github.com/Ibrahim-Al-Jid/newsgroups-text-classification', category: 'ml',
+  { slug: 'newsgroups', image: '/assets/projects/newsgroups.png', name: 'Newsgroups Text Classification', repo: 'https://github.com/Ibrahim-Al-Jid/newsgroups-text-classification', category: 'ml',
     oneLiner: { en: '20-class NLP with a measured, removed header leak', ar: 'تصنيف نصوص 20 فئة مع قياس تسريب الترويسات وإزالته' },
     metric: { en: '71.9% honest (86.2% with leak)', ar: '71.9% بصدق (86.2% مع التسريب)' }, stack: ['scikit-learn', 'TF-IDF'] },
-  { slug: 'audi', name: 'Audi Car Price Prediction', repo: 'https://github.com/Ibrahim-Al-Jid/audi-car-price-prediction', category: 'ml',
+  { slug: 'audi', image: '/assets/projects/audi.png', name: 'Audi Car Price Prediction', repo: 'https://github.com/Ibrahim-Al-Jid/audi-car-price-prediction', category: 'ml',
     oneLiner: { en: 'Used-car prices with 5-fold CV across 5 models', ar: 'أسعار سيارات مستعملة بتحقق خماسي عبر 5 نماذج' },
     metric: { en: 'MAE £1,570 (6.9%)', ar: 'متوسط خطأ 1,570 جنيهًا إسترلينيًا (6.9%)' }, stack: ['scikit-learn'] },
-  { slug: 'bigmart', name: 'BigMart Segmentation', repo: 'https://github.com/Ibrahim-Al-Jid/bigmart-customer-segmentation', category: 'ml',
+  { slug: 'bigmart', image: '/assets/projects/bigmart.png', name: 'BigMart Segmentation', repo: 'https://github.com/Ibrahim-Al-Jid/bigmart-customer-segmentation', category: 'ml',
     oneLiner: { en: 'PCA + K-Means + DBSCAN into five business segments', ar: 'PCA + K-Means + DBSCAN إلى خمس شرائح أعمال' },
     metric: { en: 'silhouette 0.280', ar: 'معامل سيلويت 0.280' }, stack: ['scikit-learn'] },
-  { slug: 'fashion', name: 'Fashion-MNIST Classical Vision', repo: 'https://github.com/Ibrahim-Al-Jid/fashion-mnist-classical-vision', category: 'ml',
+  { slug: 'fashion', image: '/assets/projects/fashion.png', name: 'Fashion-MNIST Classical Vision', repo: 'https://github.com/Ibrahim-Al-Jid/fashion-mnist-classical-vision', category: 'ml',
     oneLiner: { en: 'Classical ML only: 8 pipelines, HOG features, McNemar tests', ar: 'تعلم آلي تقليدي فقط: 8 مسارات وخصائص HOG واختبارات McNemar' },
     metric: { en: '90.3% accuracy', ar: 'دقة 90.3%' }, stack: ['scikit-learn'] },
-  { slug: 'trendora', name: 'Trendora Control Center', repo: 'https://github.com/Ibrahim-Al-Jid/Trendora-Control-Center', category: 'fullstack', featured: true,
+  { slug: 'trendora', image: '/assets/projects/trendora.svg', name: 'Trendora Control Center', repo: 'https://github.com/Ibrahim-Al-Jid/Trendora-Control-Center', category: 'fullstack', featured: true,
     oneLiner: { en: 'Full-stack e-commerce platform, English and Arabic docs', ar: 'منصة تجارة إلكترونية متكاملة بتوثيق عربي وإنجليزي' },
     metric: { en: '131 tests', ar: '131 اختبارًا' }, stack: ['FastAPI', 'PostgreSQL', 'Redis', 'React', 'TypeScript', 'Docker'] },
-  { slug: 'campus', name: 'Student Management System', privateRepo: true, category: 'fullstack',
+  { slug: 'campus', image: '/assets/projects/campus.svg', name: 'Student Management System', privateRepo: true, category: 'fullstack',
     oneLiner: { en: 'University administration: 8 roles, server-enforced permissions, MFA, EN/AR with RTL', ar: 'إدارة جامعية: 8 أدوار وصلاحيات مفروضة من الخادم وMFA وعربي/إنجليزي RTL' },
     metric: { en: '8 roles', ar: '8 أدوار' }, stack: ['FastAPI', 'React 19', 'TypeScript', 'PostgreSQL'] },
-  { slug: 'san3a', name: 'San3a', privateRepo: true, category: 'fullstack',
+  { slug: 'san3a', image: '/assets/projects/san3a.svg', name: 'San3a', privateRepo: true, category: 'fullstack',
     oneLiner: { en: 'Handcrafts marketplace: buyer storefront + artisan portal', ar: 'سوق للحرف اليدوية: واجهة مشترين وبوابة حرفيين' }, stack: ['React', 'TypeScript'] },
-  { slug: 'voltex', name: 'Voltex', privateRepo: true, category: 'fullstack',
+  { slug: 'voltex', image: '/assets/projects/voltex.svg', name: 'Voltex', privateRepo: true, category: 'fullstack',
     oneLiner: { en: 'Field-sales platform: two mobile apps, supervisor dashboard, one shared API', ar: 'منصة مبيعات ميدانية: تطبيقا جوال ولوحة مشرفين وواجهة برمجية موحدة' }, stack: ['Expo', 'React Native', 'Express', 'PostgreSQL'] },
-  { slug: 'powerbi', name: 'Power BI Analytics Portfolio', repo: 'https://github.com/Ibrahim-Al-Jid/power-bi-analytics-portfolio', category: 'data', featured: true,
+  { slug: 'powerbi', image: '/assets/projects/powerbi.png', name: 'Power BI Analytics Portfolio', repo: 'https://github.com/Ibrahim-Al-Jid/power-bi-analytics-portfolio', category: 'data', featured: true,
     oneLiner: { en: 'Five end-to-end Power BI projects with DAX measures and written findings', ar: 'خمسة مشاريع Power BI متكاملة بمقاييس DAX ونتائج مكتوبة' },
     metric: { en: '5 projects', ar: '5 مشاريع' }, stack: ['Power BI', 'DAX'] },
-  { slug: 'covid', name: 'COVID-19 Global Analysis', repo: 'https://github.com/Ibrahim-Al-Jid/covid19-global-analysis', category: 'data',
+  { slug: 'covid', image: '/assets/projects/covid.png', name: 'COVID-19 Global Analysis', repo: 'https://github.com/Ibrahim-Al-Jid/covid19-global-analysis', category: 'data',
     oneLiner: { en: '210 countries: Lasso/RFE, hypothesis tests, PCA, Power BI dashboard', ar: '210 دول: Lasso/RFE واختبارات فرضيات وPCA ولوحة Power BI' }, stack: ['Python', 'Power BI'] },
-  { slug: 'datagent', name: 'Data Analysis Agent', repo: 'https://github.com/Ibrahim-Al-Jid/Data-Analysis-Agent', category: 'data',
+  { slug: 'datagent', image: '/assets/projects/datagent.svg', name: 'Data Analysis Agent', repo: 'https://github.com/Ibrahim-Al-Jid/Data-Analysis-Agent', category: 'data',
     oneLiner: { en: 'Chat with a CSV; every number from a real Pandas tool result', ar: 'تحدث مع CSV؛ كل رقم من نتيجة أداة Pandas حقيقية' }, stack: ['FastAPI', 'Pandas'] },
-  { slug: 'oracle', name: 'Oracle University Database', repo: 'https://github.com/Ibrahim-Al-Jid/oracle-university-database', category: 'data',
+  { slug: 'oracle', image: '/assets/projects/oracle.svg', name: 'Oracle University Database', repo: 'https://github.com/Ibrahim-Al-Jid/oracle-university-database', category: 'data',
     oneLiner: { en: 'Oracle XE registration DB: triggers, auto grading, least-privilege users', ar: 'قاعدة تسجيل Oracle XE: مشغلات وتقييم تلقائي ومستخدمون بأقل صلاحية' },
     metric: { en: '30 self-checking tests', ar: '30 اختبارًا ذاتي التحقق' }, stack: ['PL/SQL', 'Oracle XE'] },
-  { slug: 'companydb', name: 'Company Database Design', repo: 'https://github.com/Ibrahim-Al-Jid/company-database-design', category: 'data',
+  { slug: 'companydb', image: '/assets/projects/companydb.png', name: 'Company Database Design', repo: 'https://github.com/Ibrahim-Al-Jid/company-database-design', category: 'data',
     oneLiner: { en: 'ERD to T-SQL: schema, seed data, 12 analytical queries', ar: 'من ERD إلى T-SQL: مخطط وبيانات أولية و12 استعلامًا تحليليًا' }, stack: ['T-SQL'] },
-  { slug: 'secure-records', name: 'Secure Student Records', repo: 'https://github.com/Ibrahim-Al-Jid/hnu-secure-student-records-system', category: 'security',
+  { slug: 'secure-records', image: '/assets/projects/secure-records.svg', name: 'Secure Student Records', repo: 'https://github.com/Ibrahim-Al-Jid/hnu-secure-student-records-system', category: 'security',
     oneLiner: { en: 'Database-centric security: RBAC, Bell-LaPadula MLS, AES-256, auditing', ar: 'أمان محوره قاعدة البيانات: RBAC وMLS بنموذج Bell-LaPadula وAES-256 وتدقيق' }, stack: ['SQL Server', 'Python'] },
-  { slug: 'campus-net', name: 'Campus Network Design', repo: 'https://github.com/Ibrahim-Al-Jid/hnu-campus-network-packet-tracer', category: 'security',
+  { slug: 'campus-net', image: '/assets/projects/campus-net.png', name: 'Campus Network Design', repo: 'https://github.com/Ibrahim-Al-Jid/hnu-campus-network-packet-tracer', category: 'security',
     oneLiner: { en: 'Four-building campus network: 12 VLANs, /26 subnets, RIP', ar: 'شبكة حرم من أربعة مبانٍ: 12 شبكة VLAN وتقسيم /26 وبروتوكول RIP' }, stack: ['Cisco Packet Tracer'] },
-  { slug: 'algo', name: 'Algorithm Problems in Python', repo: 'https://github.com/Ibrahim-Al-Jid/algorithm-problems-python', category: 'security',
+  { slug: 'algo', image: '/assets/projects/algo.png', name: 'Algorithm Problems in Python', repo: 'https://github.com/Ibrahim-Al-Jid/algorithm-problems-python', category: 'security',
     oneLiner: { en: 'Ten classics with optimized solutions, complexity analysis, unit tests', ar: 'عشر مسائل كلاسيكية بحلول محسنة وتحليل تعقيد واختبارات وحدة' }, stack: ['Python'] },
 ];
 

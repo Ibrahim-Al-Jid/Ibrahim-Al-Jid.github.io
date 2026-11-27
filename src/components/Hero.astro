@@ -9,21 +9,33 @@ const base = lang === 'ar' ? '/ar' : '';
 <section class="relative min-h-[92vh] flex items-center overflow-hidden">
   <canvas id="hero-canvas" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--color-ink)_75%)]" aria-hidden="true"></div>
-  <div class="relative max-w-6xl mx-auto px-5 pt-24 pb-16 w-full">
-    <p class="eyebrow mb-5 hero-line">{h.eyebrow}</p>
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight max-w-4xl">
-      <span class="block hero-line">{h.titleA}</span>
-      <span class="block hero-line text-[var(--color-accent)]">{h.titleB}</span>
-    </h1>
-    <p class="hero-line mt-7 text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">{h.sub}</p>
-    <div class="hero-line mt-10 flex flex-wrap items-center gap-4">
-      <a href={`${base}/#work`} class="btn-primary">{h.ctaWork}</a>
-      <a href={`${base}/#contact`} class="btn-ghost">{h.ctaCv}</a>
-      <a href={profile.github} target="_blank" rel="noopener" class="btn-ghost">{h.ctaGithub}</a>
+  <div class="relative max-w-6xl mx-auto px-5 pt-24 pb-16 w-full grid gap-12 lg:grid-cols-[1fr_auto] lg:items-center">
+    <div>
+      <p class="eyebrow mb-5 hero-line">{h.eyebrow}</p>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight max-w-4xl">
+        <span class="block hero-line">{h.titleA}</span>
+        <span class="block hero-line text-[var(--color-accent)]">{h.titleB}</span>
+      </h1>
+      <p class="hero-line mt-7 text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">{h.sub}</p>
+      <div class="hero-line mt-10 flex flex-wrap items-center gap-4">
+        <a href={`${base}/#work`} class="btn-primary">{h.ctaWork}</a>
+        <a href={`${base}/#contact`} class="btn-ghost">{h.ctaCv}</a>
+        <a href={profile.github} target="_blank" rel="noopener" class="btn-ghost">{h.ctaGithub}</a>
+      </div>
+      <div class="hero-line mt-14">
+        <a href={profile.github} target="_blank" rel="noopener" class="text-sm text-[var(--color-muted)] font-mono hover:text-[var(--color-text)] transition-colors" dir="ltr">github.com/Ibrahim-Al-Jid ↗</a>
+      </div>
     </div>
-    <div class="hero-line mt-14 flex items-center gap-4">
-      <img src={profile.avatar} alt={lang === 'ar' ? 'صورة إبراهيم حمدي' : 'Ibrahim Hamdy'} width="56" height="56" class="rounded-full border border-[var(--color-line)]" loading="eager" />
-      <div class="text-sm text-[var(--color-muted)] font-mono" dir="ltr">github.com/Ibrahim-Al-Jid</div>
+    <div class="hero-line justify-self-center lg:justify-self-end">
+      <div class="relative">
+        <div class="absolute -inset-6 rounded-[2.5rem] bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.28),transparent_70%)] blur-xl" aria-hidden="true"></div>
+        <div class="relative rounded-[2rem] p-[3px] bg-gradient-to-br from-[var(--color-accent)] via-[rgba(14,165,233,0.25)] to-transparent">
+          <img src={profile.avatar} alt={lang === 'ar' ? 'صورة إبراهيم حمدي' : 'Portrait of Ibrahim Hamdy'} width="300" height="300" class="rounded-[calc(2rem-3px)] w-56 sm:w-72 aspect-square object-cover bg-[#0F1B2E]" loading="eager" />
+        </div>
+        <div class="absolute -bottom-4 -end-4 rounded-xl border border-[var(--color-line)] bg-[var(--color-ink)] px-3 py-2 shadow-lg">
+          <span class="font-mono text-xs text-[var(--color-accent)]" dir="ltr">Cairo, EG</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -25,6 +25,7 @@ const t = ui.ar;
       <a href={cs.repo} target="_blank" rel="noopener" class="inline-block mt-4 text-[var(--color-accent)] hover:underline">{t.viewRepo} ↗</a>
     )}
     {cs.privateRepo && <p class="mt-4 text-sm text-[var(--color-muted)]">{t.privateNote}</p>}
+    <img src={cs.image} alt={`${cs.titleAr} — صورة المشروع`} width="1200" height="630" loading="eager" class="mt-8 w-full aspect-video object-cover rounded-xl border border-[var(--color-line)] bg-[#0F1B2E]" />
     <div class="mt-10 space-y-8">
       {cs.sections.map((s) => (
         <section class="reveal">

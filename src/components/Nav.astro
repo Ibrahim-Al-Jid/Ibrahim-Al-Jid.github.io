@@ -19,8 +19,9 @@ const links = [
 ---
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[rgba(11,18,32,0.75)] border-b border-[var(--color-line)]">
   <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 h-16" aria-label="Main">
-    <a href={base || '/'} class="font-mono font-semibold text-lg tracking-tight">
-      <span class="text-[var(--color-accent)]">{lang === 'ar' ? 'إبراهيم' : 'IH'}</span><span class="text-[var(--color-muted)]">{lang === 'ar' ? '' : '.'}</span>
+    <a href={base || '/'} class="flex items-center gap-2.5 font-semibold tracking-tight" aria-label="Ibrahim Hamdy">
+      <img src="/assets/logo.svg" alt="" width="34" height="34" class="rounded-[10px]" loading="eager" />
+      <span class="hidden sm:inline text-[0.95rem]">{lang === 'ar' ? 'إبراهيم حمدي' : 'Ibrahim Hamdy'}</span>
     </a>
     <div class="hidden md:flex items-center gap-6">
       {links.map((l) => (
