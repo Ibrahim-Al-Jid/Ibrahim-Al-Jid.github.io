@@ -1,0 +1,59 @@
+---
+import { agents, ui, type Lang } from '../data/content';
+import PipelineDiagram from './PipelineDiagram.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = t.sections.agents;
+const base = lang === 'ar' ? '/ar' : '';
+---
+<section id="agents" class="section-pad">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow reveal">{s.eyebrow}</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
+    <p class="reveal mt-4 text-[var(--color-muted)] max-w-2xl leading-relaxed">{s.sub}</p>
+
+    <div class="reveal mt-12">
+      <PipelineDiagram lang={lang} />
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {agents.map((a) => (
+        <article class="card reveal p-7 flex flex-col">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="text-2xl font-bold">{lang === 'ar' ? a.nameAr : a.name}</h3>
+            {a.badge && (
+              <span class="chip !border-[var(--color-accent)] !text-[var(--color-accent)]">{a.badge[lang]}</span>
+            )}
+          </div>
+          <p class="mt-2 text-[var(--color-accent-soft)]">{a.tagline[lang]}</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--color-muted)] leading-relaxed list-disc ps-5 flex-1">
+            {a.points.map((p) => <li>{p[lang]}</li>)}
+          </ul>
+          {a.metrics.length > 0 && (
+            <div class="mt-6 grid grid-cols-3 gap-3">
+              {a.metrics.map((m) => (
+                <div class="rounded-lg border border-[var(--color-line)] p-3 text-center">
+                  <div class="metric-num text-xl font-semibold" data-count={m.value} data-decimals={m.decimals ?? 0} data-suffix={m.suffix}>0{m.suffix}</div>
+                  <div class="mt-1 text-[0.68rem] text-[var(--color-muted)] leading-snug">{m.label[lang]}</div>
+                </div>
+              ))}
+            </div>
+          )}
+          <div class="mt-5 flex flex-wrap gap-2">
+            {a.stack.map((x) => <span class="chip">{x}</span>)}
+          </div>
+          <div class="mt-5 flex items-center gap-4 text-sm">
+            {a.repo ? (
+              <a href={a.repo} target="_blank" rel="noopener" class="text-[var(--color-accent)] hover:underline">{t.viewRepo} ↗</a>
+            ) : (
+              <span class="text-[var(--color-muted)]">{t.privateNote}</span>
+            )}
+            <a href={`${base}/work/${a.slug}`} class="text-[var(--color-accent)] hover:underline">{t.caseStudy} →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import { skills, ui, type Lang } from '../data/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = t.sections.skills;
+---
+<section id="skills" class="section-pad border-t border-[var(--color-line)]">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow reveal">{s.eyebrow}</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {skills.map((g) => (
+        <div class="card reveal p-6">
+          <h3 class="font-mono text-sm text-[var(--color-accent)] uppercase tracking-wider">{g.group[lang]}</h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {g.items.map((x) => <span class="chip !text-[var(--color-text)]">{x}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

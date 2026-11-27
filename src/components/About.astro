@@ -1,0 +1,31 @@
+---
+import { ui, profile, type Lang } from '../data/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = t.sections.about;
+---
+<section id="about" class="section-pad border-t border-[var(--color-line)]">
+  <div class="max-w-6xl mx-auto px-5 grid gap-10 md:grid-cols-[auto_1fr] items-start">
+    <div class="reveal">
+      <img src={profile.avatar} alt={lang === 'ar' ? 'صورة إبراهيم حمدي' : 'Ibrahim Hamdy'}
+        width="220" height="220" class="rounded-2xl border border-[var(--color-line)]" loading="lazy" />
+    </div>
+    <div>
+      <p class="eyebrow reveal">{s.eyebrow}</p>
+      <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
+      {t.aboutParas.map((p) => (
+        <p class="reveal mt-5 text-[var(--color-muted)] leading-relaxed max-w-2xl">{p}</p>
+      ))}
+      <ul class="reveal mt-6 space-y-2.5 max-w-2xl">
+        {t.howIWork.map((x) => (
+          <li class="flex gap-3 text-sm text-[var(--color-text)] leading-relaxed">
+            <span class="text-[var(--color-accent)] mt-0.5" aria-hidden="true">▸</span>
+            <span>{x}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

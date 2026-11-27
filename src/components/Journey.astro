@@ -1,0 +1,24 @@
+---
+import { journey, ui, type Lang } from '../data/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = t.sections.journey;
+---
+<section id="journey" class="section-pad border-t border-[var(--color-line)]">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow reveal">{s.eyebrow}</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
+    <ol class="mt-10 relative border-s border-[var(--color-line)] space-y-8 max-w-3xl">
+      {journey.map((j) => (
+        <li class="reveal ps-8 relative">
+          <span class="absolute -start-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--color-ink)] border-2 border-[var(--color-accent)]" aria-hidden="true"></span>
+          <div class="font-mono text-sm text-[var(--color-accent)]">{j.year[lang]}</div>
+          <h3 class="mt-1 font-semibold text-lg">{j.title[lang]}</h3>
+          <p class="mt-1 text-sm text-[var(--color-muted)] leading-relaxed">{j.text[lang]}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

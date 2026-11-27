@@ -1,0 +1,60 @@
+---
+import { projects, categories, ui, type Lang } from '../data/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = t.sections.work;
+const base = lang === 'ar' ? '/ar' : '';
+---
+<section id="work" class="section-pad border-t border-[var(--color-line)]">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow reveal">{s.eyebrow}</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
+    <p class="reveal mt-4 text-[var(--color-muted)] max-w-2xl leading-relaxed">{s.sub}</p>
+
+    <div class="reveal mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
+      {categories.map((c, i) => (
+        <button class={`chip filter-btn transition-colors hover:text-[var(--color-text)] hover:border-[var(--color-accent)] ${i === 0 ? '!text-[var(--color-accent)] !border-[var(--color-accent)]' : ''}`}
+          data-filter={c.id} role="tab" aria-selected={i === 0}>{c[lang]}</button>
+      ))}
+    </div>
+
+    <div id="work-grid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((p) => (
+        <article class="card reveal p-6 flex flex-col work-card" data-category={p.category}>
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-semibold text-lg leading-snug">{p.name}</h3>
+            {p.privateRepo && <span class="chip shrink-0">{lang === 'ar' ? 'خاص' : 'Private'}</span>}
+          </div>
+          <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed flex-1">{p.oneLiner[lang]}</p>
+          {p.metric && <p class="mt-3 metric-num text-sm">{p.metric[lang]}</p>}
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            {p.stack.slice(0, 4).map((x) => <span class="chip">{x}</span>)}
+          </div>
+          {p.repo && (
+            <a href={p.repo} target="_blank" rel="noopener" class="mt-4 text-sm text-[var(--color-accent)] hover:underline">{t.viewRepo} ↗</a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.work-card');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((x) => {
+      x.classList.remove('!text-[var(--color-accent)]', '!border-[var(--color-accent)]');
+      x.setAttribute('aria-selected', 'false');
+    });
+    b.classList.add('!text-[var(--color-accent)]', '!border-[var(--color-accent)]');
+    b.setAttribute('aria-selected', 'true');
+    const f = b.dataset.filter;
+    cards.forEach((c) => {
+      const show = f === 'all' || c.dataset.category === f;
+      c.style.display = show ? '' : 'none';
+    });
+  }));
+</script>

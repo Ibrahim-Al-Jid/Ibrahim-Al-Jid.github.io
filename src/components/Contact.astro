@@ -1,0 +1,43 @@
+---
+import { ui, profile, type Lang } from '../data/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = t.sections.contact;
+// Variant set inferred from repo evidence; adjust when he confirms tracks.
+const cvVariants = [
+  { id: 'master', en: 'Master CV', ar: 'النسخة الرئيسية' },
+  { id: 'front-end', en: 'Front-end track', ar: 'نسخة تطوير الواجهات' },
+  { id: 'data-analysis', en: 'Data analysis track', ar: 'نسخة تحليل البيانات' },
+  { id: 'ml-ai-engineer', en: 'ML / AI engineer track', ar: 'نسخة مهندس تعلم آلة وذكاء اصطناعي' },
+  { id: 'backend-fullstack', en: 'Backend / full-stack track', ar: 'نسخة الواجهات الخلفية والأنظمة المتكاملة' },
+];
+---
+<section id="contact" class="section-pad border-t border-[var(--color-line)]">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow reveal">{s.eyebrow}</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight mt-3">{s.title}</h2>
+    <p class="reveal mt-4 text-[var(--color-muted)] max-w-2xl leading-relaxed">{s.sub}</p>
+
+    <div class="mt-8 flex flex-wrap gap-4 reveal">
+      <a href={`mailto:${profile.email}`} class="btn-primary" dir="ltr">{profile.email}</a>
+      <a href={profile.linkedin} target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
+      <a href={profile.github} target="_blank" rel="noopener" class="btn-ghost">GitHub</a>
+    </div>
+
+    <div class="mt-14 reveal">
+      <h3 class="text-2xl font-bold">{t.cvSection.title}</h3>
+      <p class="mt-2 text-sm text-[var(--color-muted)]">{t.cvSection.note}</p>
+      <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {cvVariants.map((v) => (
+          <a href={`/cv/ibrahim-hamdy-${v.id}.pdf`}
+            class="card p-5 flex items-center justify-between gap-3 group" download>
+            <span class="font-medium">{v[lang]}</span>
+            <span class="chip group-hover:!border-[var(--color-accent)] group-hover:!text-[var(--color-accent)] transition-colors">{t.cvSection.download}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

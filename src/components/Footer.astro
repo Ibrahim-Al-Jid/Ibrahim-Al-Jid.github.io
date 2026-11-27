@@ -1,0 +1,19 @@
+---
+import { profile, type Lang } from '../data/content';
+
+interface Props {
+  lang: Lang;
+  t: (typeof import('../data/content').ui)['en'];
+}
+const { lang, t } = Astro.props;
+---
+<footer class="border-t border-[var(--color-line)] py-10 mt-8">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-[var(--color-muted)]">{t.footer} · {new Date().getFullYear()}</p>
+    <div class="flex items-center gap-5 text-sm">
+      <a href={profile.github} target="_blank" rel="noopener" class="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">GitHub</a>
+      <a href={profile.linkedin} target="_blank" rel="noopener" class="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">LinkedIn</a>
+      <a href={`mailto:${profile.email}`} class="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">Email</a>
+    </div>
+  </div>
+</footer>
